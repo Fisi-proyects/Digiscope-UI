@@ -74,8 +74,8 @@ const FeaturedCard = ({ onPress }) => {
         <TouchableOpacity style={styles.featuredCard} onPress={onPress}>
             <View style={styles.featuredIcon} />
             <View style={styles.featuredTextContainer}>
-                <Text style={styles.featuredTitle} numberOfLines={1}>Cuestionario Destacado</Text>
-                <Text style={styles.featuredDescription} numberOfLines={2}>Este es un cuestionario especial que debes intentar.</Text>
+                <Text style={styles.featuredTitle} numberOfLines={1}>Cuestionario Wasasiano</Text>
+                <Text style={styles.featuredDescription} numberOfLines={2}>Este es un cuestionario especial para especiales.</Text>
             </View>
         </TouchableOpacity>
     );
