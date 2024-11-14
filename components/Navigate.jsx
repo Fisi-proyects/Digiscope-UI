@@ -5,7 +5,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { Link } from "expo-router";
 export default function Navigate(){
 
-    const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState(1);
 
     const handleSelected = (index) =>{
         setSelected(index);

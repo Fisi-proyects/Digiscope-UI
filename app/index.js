@@ -1,7 +1,5 @@
-import App from "../App";
+import LessonsC from "../components/Lessons"
 
-export default function Index(){
-    return (
-        <App />
-    )
+export default function Lessons() {
+    return <LessonsC />
 }
