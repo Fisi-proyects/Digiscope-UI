@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
@@ -25,7 +25,6 @@ export default function App() {
             </View>
 
             {activeTab === 'Cuestionarios' ? <Quizzes /> : <Lessons />}
-
             <View style={styles.bottomBar}>
             </View>
         </View>
@@ -57,14 +56,32 @@ const Quizzes = () => {
 };
 
 const Lessons = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const lessonsData = [
+        { id: 1, title: 'Lección 1' },
+        { id: 2, title: 'Lección 2' },
+        { id: 3, title: 'Lección Especial' },
+        { id: 4, title: 'Lección Avanzada' },
+        { id: 5, title: 'Lección Introductoria' },
+    ];
+
+    const filteredLessons = lessonsData.filter(lesson =>
+        lesson.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <ScrollView contentContainerStyle={styles.contentWrapper}>
-            <View style={styles.lessonContainer}>
-                <Text style={styles.lessonText}>Contenido de la Lección 1</Text>
-            </View>
-            <View style={styles.lessonContainer}>
-                <Text style={styles.lessonText}>Contenido de la Lección 2</Text>
-            </View>
+            <TextInput
+                style={styles.searchInput}
+                placeholder="Filtrar lecciones"
+                value={searchTerm}
+                onChangeText={text => setSearchTerm(text)}
+            />
+            {filteredLessons.map((lesson) => (
+                <View key={lesson.id} style={styles.lessonContainer}>
+                    <Text style={styles.lessonText}>{lesson.title}</Text>
+                </View>
+            ))}
         </ScrollView>
     );
 };
@@ -212,6 +229,16 @@ const styles = StyleSheet.create({
         color: '#666',
         marginTop: 4,
     },
+    searchInput: {
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 10,
+        marginBottom: 15,
+        width: '90%',
+        fontSize: 18,
+        borderColor: '#ddd',
+        borderWidth: 1,
+    },
     lessonContainer: {
         backgroundColor: '#fff',
         padding: 20,
@@ -237,5 +264,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         padding: 30,
         alignItems: 'center',
+    },
+    bottomText: {
+        fontSize: 16,
+        color: '#666',
     },
 });
