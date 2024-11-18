@@ -285,8 +285,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         padding: 30,
         alignItems: 'center',
-        borderTopWidth: 1,
-        borderColor: '#ddd',
     },
     bottomText: {
         fontSize: 16,

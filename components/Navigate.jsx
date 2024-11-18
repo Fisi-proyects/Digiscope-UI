@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 30,
         backgroundColor: 'white',
+        shadowColor: 'black',
+        shadowOpacity: 0.9,
+        shadowOffset: { width: 0, height: 10 },
+        elevation: 30,
+        borderColor: '#ddd',
+        borderTopWidth: 1,
 
     },
     icons:{
