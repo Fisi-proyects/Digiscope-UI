@@ -1,12 +1,13 @@
-import { Viro3DObject, ViroAmbientLight, ViroARScene, ViroARSceneNavigator, ViroBox, ViroTrackingStateConstants } from "@reactvision/react-viro";
+import { Viro3DObject, ViroAmbientLight, ViroAnimations, ViroARScene, ViroARSceneNavigator, ViroARTrackingTargets, ViroBox, ViroTrackingStateConstants } from "@reactvision/react-viro";
 import { Text, View } from "react-native";
+import ArCards from "./ArCards";
 
 const models = [
     {
         target: 'microscope',
-        model: require('../res/microscope/microscope.obj'),
+        model: require('../res/microscope/mikro1.obj'),
         type: 'OBJ',
-        scale: [.1, .1, .1],
+        scale: [.6, .6, .6],
         resources: [],
     },
     {
@@ -43,28 +44,106 @@ const models = [
         type: 'OBJ',
         scale: [.1, .1, .1],
         resources: [],
-    }
+    },
+    {
+        target:'balanza',
+        model: require('../res/balanza/Gramera.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target:'pipeta',
+        model: require('../res/pipete/pipete.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+
 ]
 
+
+
 export default function ArViewerC (){
+
+
+    ViroAnimations.registerAnimations({
+        grow:{
+        properties:{
+            scaleX:.1,
+            scaleY:.1,
+            scaleZ:.1
+        }, 
+        duration:500, //.25 seconds
+        easing:"EaseInEaseOut"
+        },
+        rotate:{
+        properties:{
+            rotateY:"+=20"
+        },
+        duration:500, //.25 seconds
+        }
+    })
+
+    ViroARTrackingTargets.createTargets({
+        'microscope':{
+            source: require('../res/cards/microscope.jpg'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'matraz':{
+            source: require('../res/cards/matraz.png'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'mechero':{
+            source: require('../res/cards/mechero.png'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'mezcladora':{
+            source: require('../res/cards/mezcladora.jpg'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'test_tubes':{
+            source: require('../res/cards/test_tubes.jpg'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'probeta':{
+            source: require('../res/cards/probeta.jpg'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'balanza':{
+            source: require('../res/cards/balanza.jpg'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+        'pipeta':{
+            source: require('../res/cards/pipeta.jpg'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        },
+    })
 
     const CardScene = () => {
         return (
             <ViroARScene>
                 <ViroAmbientLight color="#ffffff" influenceBitMask={1}/>
-                <Viro3DObject
-                    type="OBJ"
-                    postion={[0, 0, -1]}
-                    scale={[.1, .1, .1]}
-                    source={require('../res/petri/petri.obj')}
-                    resources={[require('../res/petri/bacteria_image.jpg')]}
-                />
-                <Viro3DObject
-                    type="OBJ"
-                    postion={[0, 2, -1]}
-                    scale={[.1, .1, .1]}
-                    source={require('../res/balanza/Gramera.obj')}
-                />
+                {models.map((model, index) => {
+                    return (
+                        <ArCards
+                            key={index}
+                            target={model.target}
+                            type={model.type}
+                            scale={model.scale}
+                            model={model.model}
+                            onAnchorFound={() => console.log("Encontrado")}
+                         />
+                    )
+                })}
             </ViroARScene>
         )
     }
