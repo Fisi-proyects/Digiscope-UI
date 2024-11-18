@@ -122,7 +122,7 @@ export default function ArViewerC (){
             physicalWidth: 0.1
         },
         'pipeta':{
-            source: require('../res/cards/pipeta.jpg'),
+            source: require('../res/cards/pipeta.png'),
             orientation: 'Up',
             physicalWidth: 0.1
         },
