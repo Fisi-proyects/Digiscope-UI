@@ -1,8 +1,9 @@
-import { Image, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import FeaturedCard from "./FeaturedCard";
 import QuizCard from "./QuizCard";
 import { useState } from "react";
+import { Link } from "expo-router";
 
 
 
@@ -32,7 +33,8 @@ export default function ScrollLesson (){
             
             {filteredLessons.map((lesson) => (
 /* CARDS DE LAS LECCIONES */
-
+                <Link href={`/lessons/${lesson.id}`} asChild  >
+                <TouchableOpacity style={{width:'100%'}}>
                 <View key={lesson.id} style={styles.lessoncard}>
                     <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
                     <View style={styles.lesonTextContainer}>
@@ -56,8 +58,9 @@ export default function ScrollLesson (){
                         <Ionicons name='arrow-forward-outline' size={30} color='#515050'  />
                     </View>
                 </View>
-
-
+                </TouchableOpacity>
+                </Link>
+                
 
             ))}
         </ScrollView>

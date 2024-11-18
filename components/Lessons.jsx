@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, TextInput } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { Image } from 'react-native';
-import FeaturedCard from './FeaturedCard';
-import QuizCard from './QuizCard';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import ScrollQuestions from './ScrollQuestions';
 import ScrollLesson from './ScrollLeson';
 
