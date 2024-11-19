@@ -12,7 +12,7 @@ export default function HelpC() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Ayuda</Text>
+            <Text style={styles.header}>Ayudaa</Text>
 
             <TouchableOpacity
                 style={styles.card}
@@ -48,7 +48,7 @@ export default function HelpC() {
                 onPress={() =>
                     openModal(
                         'Preguntas Frecuentes',
-                        `1. ¿Cómo funciona la realidad aumentada en esta aplicación? 
+                        `1. ¿Cómo funciona la realidad aumentada en esta aplicación?
                         \nLa RA funciona escaneando una imagen del instrumento de laboratorio. Una vez que se reconoce, se muestra una visualización interactiva con información adicional.\n
                         \n2. ¿Qué hago si la aplicación no reconoce un instrumento?
                         \nAsegúrate de que la imagen esté bien iluminada y en buena calidad. Si el problema persiste, revisa si el instrumento está incluido en la lista de la aplicación.\n
@@ -110,7 +110,7 @@ export default function HelpC() {
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
                         <Text style={styles.modalTitle}>{modalContent.title}</Text>
-                        <ScrollView>
+                        <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
                             <Text style={styles.modalDescription}>{modalContent.description}</Text>
                         </ScrollView>
                         <Pressable
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         alignItems: 'center',
         width: '100%',
+        overflow: 'hidden',
     },
     header: {
         fontSize: 36,
@@ -186,8 +187,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 20,
         padding: 25,
+        maxWidth: '90%',
         width: '80%',
         alignItems: 'center',
+        overflow: 'hidden',
     },
     modalTitle: {
         fontSize: 24,
@@ -199,6 +202,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#666',
         textAlign: 'center',
+        lineHeight: 24,
         marginBottom: 20,
     },
     closeButton: {
