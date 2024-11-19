@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Modal, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Modal, Pressable, ScrollView, Dimensions } from 'react-native';
+
+const screenHeight = Dimensions.get('window').height;
 
 export default function HelpC() {
     const [modalVisible, setModalVisible] = useState(false);
@@ -48,7 +50,7 @@ export default function HelpC() {
                 onPress={() =>
                     openModal(
                         'Preguntas Frecuentes',
-                        `1. ¿Cómo funciona la realidad aumentada en esta aplicación? 
+                        `1. ¿Cómo funciona la realidad aumentada en esta aplicación?
                         \nLa RA funciona escaneando una imagen del instrumento de laboratorio. Una vez que se reconoce, se muestra una visualización interactiva con información adicional.\n
                         \n2. ¿Qué hago si la aplicación no reconoce un instrumento?
                         \nAsegúrate de que la imagen esté bien iluminada y en buena calidad. Si el problema persiste, revisa si el instrumento está incluido en la lista de la aplicación.\n
@@ -110,7 +112,7 @@ export default function HelpC() {
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
                         <Text style={styles.modalTitle}>{modalContent.title}</Text>
-                        <ScrollView>
+                        <ScrollView contentContainerStyle={styles.scrollContent}>
                             <Text style={styles.modalDescription}>{modalContent.description}</Text>
                         </ScrollView>
                         <Pressable
@@ -133,6 +135,7 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         alignItems: 'center',
         width: '100%',
+        overflow: 'hidden',
     },
     header: {
         fontSize: 36,
@@ -181,23 +184,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        paddingVertical: 20, 
     },
     modalContent: {
         backgroundColor: '#fff',
         borderRadius: 20,
-        padding: 25,
-        width: '80%',
+        padding: 20,
+        maxHeight: screenHeight * 0.8, 
+        width: '90%',
         alignItems: 'center',
+    },
+    scrollContent: {
+        paddingHorizontal: 10,
+        paddingVertical: 15, 
     },
     modalTitle: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 15,
         color: '#333',
+        textAlign: 'center',
     },
     modalDescription: {
         fontSize: 18,
         color: '#666',
+        lineHeight: 24,
         textAlign: 'center',
         marginBottom: 20,
     },
