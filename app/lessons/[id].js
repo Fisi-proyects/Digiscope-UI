@@ -1,9 +1,11 @@
 import { Link, useLocalSearchParams } from "expo-router";
 import { Text, View } from "react-native";
+import { lessonsData } from "./LessonsData";
 
 export default function DetailLesson(){
 
     const {id} = useLocalSearchParams();
+    const lesson = lessonsData.find(lesson => lesson.id === parseInt(id)); 
     return (
         <View style={{
             flex:1,
@@ -11,7 +13,7 @@ export default function DetailLesson(){
             alignItems:'center'
             }}>
             <Text>
-                Detalle de la lección {id}
+                {lesson.tool}
             </Text>
             <Link href={'/'} >
                 Volver Atras
