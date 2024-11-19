@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Modal, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Modal, Pressable, ScrollView, Dimensions } from 'react-native';
+
+const screenHeight = Dimensions.get('window').height;
 
 export default function HelpC() {
     const [modalVisible, setModalVisible] = useState(false);
@@ -12,7 +14,7 @@ export default function HelpC() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Ayudaa</Text>
+            <Text style={styles.header}>Ayuda</Text>
 
             <TouchableOpacity
                 style={styles.card}
@@ -110,7 +112,7 @@ export default function HelpC() {
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
                         <Text style={styles.modalTitle}>{modalContent.title}</Text>
-                        <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
+                        <ScrollView contentContainerStyle={styles.scrollContent}>
                             <Text style={styles.modalDescription}>{modalContent.description}</Text>
                         </ScrollView>
                         <Pressable
@@ -182,27 +184,32 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        paddingVertical: 20, 
     },
     modalContent: {
         backgroundColor: '#fff',
         borderRadius: 20,
-        padding: 25,
-        maxWidth: '90%',
-        width: '80%',
+        padding: 20,
+        maxHeight: screenHeight * 0.8, 
+        width: '90%',
         alignItems: 'center',
-        overflow: 'hidden',
+    },
+    scrollContent: {
+        paddingHorizontal: 10,
+        paddingVertical: 15, 
     },
     modalTitle: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 15,
         color: '#333',
+        textAlign: 'center',
     },
     modalDescription: {
         fontSize: 18,
         color: '#666',
-        textAlign: 'center',
         lineHeight: 24,
+        textAlign: 'center',
         marginBottom: 20,
     },
     closeButton: {
