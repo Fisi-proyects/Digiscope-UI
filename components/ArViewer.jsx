@@ -1,71 +1,24 @@
 import { Viro3DObject, ViroAmbientLight, ViroAnimations, ViroARScene, ViroARSceneNavigator, ViroARTrackingTargets, ViroBox, ViroTrackingStateConstants } from "@reactvision/react-viro";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import ArCards from "./ArCards";
+import { useState } from "react";
+import { data_models } from "./models";
+import { MicroscopeScene } from "./scenes/MicroscopeScene";
+import { MatrazScene } from "./scenes/MatrazScene";
+import { TestTubesScene } from "./scenes/TestTubesScene";
+import { PipetaScene } from "./scenes/PipetaScene";
 
-const models = [
-    {
-        target: 'microscope',
-        model: require('../res/microscope/mikro1.obj'),
-        type: 'OBJ',
-        scale: [.6, .6, .6],
-        resources: [],
-    },
-    {
-        target: 'matraz',
-        model: require('../res/matraz1/matraz1.obj'),
-        type: 'OBJ',
-        scale: [.1, .1, .1],
-        resources: [],
-    },
-    {
-        target:'mechero',
-        model: require('../res/mechero/mechero.obj'),
-        type: 'OBJ',
-        resources: [],
-        scale: [.1, .1, .1],
-    },
-    {
-        target: 'mezcladora',
-        model: require('../res/mezcladora/mezcladora.obj'),
-        type: 'OBJ',
-        scale: [.1, .1, .1],
-        resources: [],
-    },
-    {
-        target: 'test_tubes',
-        model: require('../res/tubos_ensayo/tubos_ensayo.obj'),
-        type: 'OBJ',
-        scale: [.1, .1, .1],
-        resources: [],
-    },
-    {
-        target:'probeta',
-        model: require('../res/probeta/tubos_medidor.obj'),
-        type: 'OBJ',
-        scale: [.1, .1, .1],
-        resources: [],
-    },
-    {
-        target:'balanza',
-        model: require('../res/balanza/Gramera.obj'),
-        type: 'OBJ',
-        scale: [.1, .1, .1],
-        resources: [],
-    },
-    {
-        target:'pipeta',
-        model: require('../res/pipete/pipete.obj'),
-        type: 'OBJ',
-        scale: [.1, .1, .1],
-        resources: [],
-    },
-
-]
-
-
+const models = data_models;
+const scenes = {
+    microscope: MicroscopeScene,
+    matraz: MatrazScene,
+    test_tubes: TestTubesScene,
+    pipeta: PipetaScene
+}
 
 export default function ArViewerC (){
-
+    // const [targetFound, setTargetFound] = useState("");
+    const [currentScene, setCurrentScene] = useState("microscope");
 
     ViroAnimations.registerAnimations({
         grow:{
@@ -128,25 +81,36 @@ export default function ArViewerC (){
         },
     })
 
-    const CardScene = () => {
-        return (
-            <ViroARScene>
-                <ViroAmbientLight color="#ffffff" influenceBitMask={1}/>
-                {models.map((model, index) => {
-                    return (
-                        <ArCards
-                            key={index}
-                            target={model.target}
-                            type={model.type}
-                            scale={model.scale}
-                            model={model.model}
-                            onAnchorFound={() => console.log("Encontrado")}
-                         />
-                    )
-                })}
-            </ViroARScene>
-        )
-    }
+    
+    // const onAnchorFound = (newTarget, e) => {
+    //     console.log("Encontrado ahora: " + newTarget)
+    //     setTargetFound(newTarget);
+    // }
+
+    const handleSceneChange = (sceneKey) => {
+        setCurrentScene(sceneKey);
+        sceneNavigator.jump(sceneKey, { scene: scenes[sceneKey] });
+    };
+
+    // const CardScene = () => {
+    //     return (
+    //         <ViroARScene>
+    //             <ViroAmbientLight color="#ffffff" influenceBitMask={1}/>
+    //             {models.map((model, index) => {
+    //                 return (
+    //                     <ArCards
+    //                         key={index}
+    //                         target={model.target}
+    //                         type={model.type}
+    //                         scale={model.scale}
+    //                         model={model.model}
+    //                         onAnchorFound={(e) => onAnchorFound(model.target, e) }
+    //                     />
+    //                 )
+    //             })}
+    //         </ViroARScene>
+    //     )
+    // }
 
     const onInitialized = (state, reason) => {
         if(state === ViroTrackingStateConstants.TRACKING_NORMAL){
@@ -156,14 +120,33 @@ export default function ArViewerC (){
         }
     }
 
-    return (
-        <View style={{flex:1, width: "100%", height:"100%"}}>
-            <ViroARSceneNavigator
-                autofocus={true}
-                initialScene={{scene: CardScene}}
-                style={{flex: 1, width: "100%", height: "100%"}}
-                />
+    // console.log("New target: " + targetFound );
 
+    return (
+        <View style={{flex:1, width: "100%", height:"100%"}}> 
+            <ViroARSceneNavigator 
+                ref={(navigator) => { this.sceneNavigator = navigator; }} 
+                autofocus={true}
+                // initialScene={{scene: CardScene}}
+                initialScene={{ scene: scenes[currentScene], key: currentScene }} // te odio
+                style={{flex: 1, width: "100%", height: "100%"}}
+            />
+            <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around", paddingBottom: 100 }}>
+                {models.map((model, index) => {
+                    return (
+                        <View key={index} style={{ width: "25%", padding: 5 }}>
+                            <Button 
+                                title={model.target} 
+                                onPress={() => {
+                                    // setCurrentScene(model.target);
+                                    handleSceneChange(model.target);
+                                    console.log(currentScene);
+                                }} 
+                            />
+                        </View>
+                    )
+                })}
+            </View>
         </View>
     );
 }
