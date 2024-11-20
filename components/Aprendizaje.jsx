@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import ScrollQuestions from './ScrollQuestions';
 import ScrollLesson from './ScrollLeson';
+import { Slot } from 'expo-router';
 
-export default function LessonsC() {
+export default function AprendizajeC() {
     const [activeTab, setActiveTab] = useState('Lecciones');
 
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Aprendizaje</Text>
-
             <View style={styles.tabContainer}>
                 <TouchableOpacity
                     style={[styles.tab, activeTab === 'Lecciones' && styles.activeTab]}

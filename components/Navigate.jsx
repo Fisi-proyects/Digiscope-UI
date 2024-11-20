@@ -20,7 +20,7 @@ export default function Navigate(){
                     <MaterialCommunityIcons name="line-scan" size={24} color={selected === 0 ? '#79DA9E': 'black'} />
                 </TouchableOpacity>
             </Link>
-            <Link href="/lessons" asChild  key ={1} >
+            <Link href="/aprendizaje" asChild  key ={1} >
                 <TouchableOpacity style={styles.icons} onPress={()=>{
                     handleSelected(1);
                 }} >
