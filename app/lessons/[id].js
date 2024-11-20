@@ -6,6 +6,9 @@ export default function DetailLesson(){
 
     const {id} = useLocalSearchParams();
     const lesson = lessonsData.find(lesson => lesson.id === parseInt(id)); 
+
+    const isLessonOne = lesson.id === 1;
+
     return (
         <View style={styles.container}>
             <View style={styles.statusBarSpacer} />
@@ -22,31 +25,29 @@ export default function DetailLesson(){
                     <Image source={{ uri: lesson.image }} style={styles.lessonImage} resizeMode="contain"/>
                 </View>
                 <View style={styles.subprincipalContainer}>
-                    <Text style={styles.text}>
-                        {lesson.description}
-                    </Text>
-                    <Text style={styles.subtitle}>
-                        Caracteristicas:
-                    </Text>
-                    <Text style={styles.text}>
-                        {lesson.characteristics}
-                    </Text>
-                    <Text style={styles.subtitle}>
-                        Intrucciones de Uso:
-                    </Text>
-                    <Text style={styles.text}>
-                        {lesson.instruction}
-                    </Text>
-                    <Text style={styles.subtitle}>
-                        Precauciones:
-                    </Text>
-                    <Text style={styles.text}>
-                        {lesson.caution}
-                    </Text>
+                {isLessonOne ? (
+                        <>
+                            <Text style={styles.text}>{lesson.description}</Text>
+                            <Text style={styles.subtitle}>Clasificación de Materiales de Laboratorio:</Text>
+                            <Text style={styles.text}>{lesson.characteristics}</Text>
+                            <Text style={styles.subtitle}>Objetivo de las Lecciones:</Text>
+                            <Text style={styles.text}>{lesson.instruction}</Text>
+                        </>
+                    ) : (
+                        <>
+                            <Text style={styles.text}>{lesson.description}</Text>
+                            <Text style={styles.subtitle}>Características:</Text>
+                            <Text style={styles.text}>{lesson.characteristics}</Text>
+                            <Text style={styles.subtitle}>Instrucciones de Uso:</Text>
+                            <Text style={styles.text}>{lesson.instruction}</Text>
+                            <Text style={styles.subtitle}>Precauciones:</Text>
+                            <Text style={styles.text}>{lesson.caution}</Text>
+                        </>
+                    )}
                 </View>
             </ScrollView>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({

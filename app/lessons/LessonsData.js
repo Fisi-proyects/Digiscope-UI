@@ -1,9 +1,9 @@
 export const lessonsData = [
     { id: 1, title: 'Lección 1', tool: 'Materiales de Laboratorio', 
         description: "Primero debemos de saber que un laboratorio es un espacio físico donde se desarrollan investigaciones en torno a un tema preciso con el objetivo de ampliar conocimientos. \nEntonces, los materiales de laboratorio son aquellos instrumentos que se usan para realizar investigaciones y experimentos, estos se pueden clasificar de distintas maneras según el criterio que se vaya a aplicar.", 
-        characteristics: "", 
-        instruction: "", 
-        caution: "",
+        characteristics: "- Teniendo en cuenta su naturaleza, es decir, de qué está constituido el material\n- Atendiendo a su peso, ya sean materiales ligeros o pesados\n- En función de si necesitan reponerse con frecuencia o no\n- Según la función que desempeñe cada material", 
+        instruction: "En esta aplicación podrás encontrar lecciones individuales por cada material de laboratorio, enfocándonos principalmente en aquellos materiales que se usan en los experimentos químicos. Las lecciones constan de una descripción del material, sus características más importantes y la forma correcta en la que se debe usar.", 
+        caution: "Ricardo pasa el num de tu prima :,v",
         image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
 
     { id: 2, title: 'Lección 2', tool: 'Placa de Petri', 
