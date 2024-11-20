@@ -4,16 +4,7 @@ import FeaturedCard from "./FeaturedCard";
 import QuizCard from "./QuizCard";
 import { useState } from "react";
 import { Link } from "expo-router";
-
-
-
-const lessonsData = [
-    { id: 1, title: 'Lección 1', description: 'Descripción de la Lección 1', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
-    { id: 2, title: 'Lección 2', description: 'Descripción de la Lección 2', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
-    { id: 3, title: 'Lección Especial', description: 'Descripción de la Lección Especial', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
-    { id: 4, title: 'Lección Avanzada', description: 'Descripción de la Lección Avanzada', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
-    { id: 5, title: 'Lección Introductoria', description: 'Descripción de la Lección Introductoria', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
-];
+import { lessonsData } from "../app/lessons/LessonsData";
 
 export default function ScrollLesson (){
     const [searchTerm, setSearchTerm] = useState('');
@@ -39,7 +30,7 @@ export default function ScrollLesson (){
                     <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
                     <View style={styles.lesonTextContainer}>
                         <Text style={styles.cardTitle}>{lesson.title}</Text>
-                        <Text style={styles.cardDescription}>{lesson.description}</Text>
+                        <Text style={styles.cardDescription}>{lesson.tool}</Text>
                     </View>
                     <View style={{
                         backgroundColor:'white',
