@@ -1,10 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
-export default function QuizCard ({title, description}){
+export default function QuizCard ({onPress, title, description}){
     return (
-
-        <View style={styles.questioncard}>
+        <TouchableOpacity style={styles.questioncard} onPress={onPress}>
             <View style={styles.iconContainer}>
                 <Ionicons name="document-text" size={36} color="#4CAF50" />
             </View>
@@ -13,7 +12,7 @@ export default function QuizCard ({title, description}){
                 <Text style={styles.cardDescription} numberOfLines={1}>{description}</Text>
             </View>
                 <Ionicons name="chevron-forward" size={30} color="#333" />
-        </View>
+        </TouchableOpacity>
     )
 }
 const styles = StyleSheet.create({
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     cardTitle: {
-    
+        fontFamily: 'Inter',        
         fontSize: 14,
         fontWeight: 'bold',
         lineHeight: 16.94,
@@ -55,7 +54,8 @@ const styles = StyleSheet.create({
         textDecorationLine: 'bold',   
         textDecorationSkipInk: 'none',     
     },
-    cardDescription: {    
+    cardDescription: {
+        fontFamily: 'Inter',        
         fontSize: 12,
         fontWeight: '500',
         lineHeight: 14.52,
