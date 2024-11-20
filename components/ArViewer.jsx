@@ -59,6 +59,19 @@ const models = [
         scale: [.1, .1, .1],
         resources: [],
     },
+    {
+        target:'agarradera',
+        model: require('../res/agarradera/agarradera.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },{
+        target:'mechero',
+        model: require('../res/mechero/mechero.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    }
 
 ]
 
@@ -126,12 +139,23 @@ export default function ArViewerC (){
             orientation: 'Up',
             physicalWidth: 0.1
         },
+        'agarradera':{
+            source: require('../res/cards/agarradera.png'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        }
     })
 
     const CardScene = () => {
         return (
             <ViroARScene>
                 <ViroAmbientLight color="#ffffff" influenceBitMask={1}/>
+                <Viro3DObject 
+                    scale={[.1, .1, .1]}
+                    position={[0,0,-1]}
+                    type="OBJ"
+                    source={require('../res/tubos_ensayo/tubos_ensayo.obj')}
+                />
                 {models.map((model, index) => {
                     return (
                         <ArCards
