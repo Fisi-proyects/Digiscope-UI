@@ -24,6 +24,7 @@ export default function ScrollQuestions (){
                     onPress={() => alert(`Cuestionario ${quiz.id}`)} 
                 />
             ))}
+            
         </ScrollView>
     );
 }
