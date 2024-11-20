@@ -23,36 +23,34 @@ export default function ScrollLesson (){
             />
             
             {filteredLessons.map((lesson) => (
-/* CARDS DE LAS LECCIONES */
-                <Link href={`/lessons/${lesson.id}`} asChild  >
-                <TouchableOpacity style={{width:'100%'}}>
-                <View key={lesson.id} style={styles.lessoncard}>
-                    <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
-                    <View style={styles.lesonTextContainer}>
-                        <Text style={styles.cardTitle}>{lesson.title}</Text>
-                        <Text style={styles.cardDescription}>{lesson.tool}</Text>
-                    </View>
-                    <View style={{
-                        backgroundColor:'white',
-                        position:'absolute',
-                        right:0,
-                        bottom:-10,
-                        width:40,
-                        height:40,
-                        borderRadius:50,
-                        aspectRatio:1,
-                        marginBottom:'20%',
-                        marginRight:'5%',
-                        alignItems:'center',
-                        justifyContent:'center',
-                    }}   >
-                        <Ionicons name='arrow-forward-outline' size={30} color='#515050'  />
-                    </View>
-                </View>
-                </TouchableOpacity>
-                </Link>
-                
 
+                <Link key={lesson.id} href={`/lessons/${lesson.id}`} asChild>
+                    <TouchableOpacity style={{width:'100%'}}>
+                        <View style={styles.lessoncard}>
+                            <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
+                            <View style={styles.lesonTextContainer}>
+                                <Text style={styles.cardTitle}>{lesson.title}</Text>
+                                <Text style={styles.cardDescription}>{lesson.tool}</Text>
+                            </View>
+                            <View style={{
+                                backgroundColor:'white',
+                                position:'absolute',
+                                right:0,
+                                bottom:0,
+                                width:40,
+                                height:40,
+                                borderRadius:50,
+                                aspectRatio:1,
+                                marginBottom:'20%',
+                                marginRight:'5%',
+                                alignItems:'center',
+                                justifyContent:'center',
+                            }}>
+                                <Ionicons name='arrow-forward-outline' size={30} color='#515050' />
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                </Link>
             ))}
         </ScrollView>
     );
@@ -106,7 +104,6 @@ const styles = StyleSheet.create({
         justifyContent:'flex-start',
     },
     cardTitle: {
-        fontFamily: 'Inter',        
         fontSize: 14,
         fontWeight: 'bold',
         lineHeight: 16.94,
@@ -115,7 +112,6 @@ const styles = StyleSheet.create({
         textDecorationSkipInk: 'none',     
     },
     cardDescription: {
-        fontFamily: 'Inter',        
         fontSize: 12,
         fontWeight: '500',
         lineHeight: 14.52,
@@ -123,4 +119,4 @@ const styles = StyleSheet.create({
         //textDecorationLine: 'underline',   
         textDecorationSkipInk: 'none',     
     },
-})
+});

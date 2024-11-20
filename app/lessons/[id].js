@@ -14,7 +14,7 @@ export default function DetailLesson(){
             <View style={styles.statusBarSpacer} />
             <ScrollView>
                 <View style={styles.principalContainer}>
-                    <Link href={'/'} >
+                    <Link href={'/aprendizaje/lessons'} >
                         <View style={styles.buttonBack}>
                             <Image source={require('../../assets/FlechaAtras.png')} />
                         </View>
@@ -86,21 +86,18 @@ const styles = StyleSheet.create({
     },
     title: {
         textAlign: 'center',
-        fontFamily: 'Inter',
         fontSize: 20,
         lineHeight: 24,
         fontWeight: 'bold',
     },
     subtitle: {
         textAlign: 'left',
-        fontFamily: 'Inter',
         fontWeight: 'bold',
         fontSize: 14,
         lineHeight: 17,
     },
     text: {
         textAlign: 'left',
-        fontFamily: 'Inter',
         fontSize: 13,
         lineHeight: 17,
     },
