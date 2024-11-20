@@ -9,7 +9,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd C:/Users/51947/Downloads/free-pipette-laboratory-low-poly/source/SF_Piette_NakedSingularity/SF_Pipette_NakedSingularity/T_Pipette_glass_D.png
+map_Kd ./T_Pipette_glass_D.png
 
 newmtl plastic
 Ns 200.000000
@@ -29,4 +29,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd C:/Users/51947/Downloads/free-pipette-laboratory-low-poly/source/SF_Piette_NakedSingularity/SF_Pipette_NakedSingularity/T_Pipette_plastic_D.png
+map_Kd ./T_Pipette_plastic_D.png
