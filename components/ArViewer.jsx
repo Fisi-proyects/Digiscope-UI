@@ -10,7 +10,84 @@ import { PipetaScene } from "./scenes/PipetaScene";
 import { JeringaScene } from "./scenes/JeringaScene";
 import { PetriScene } from "./scenes/PetriScene";
 
-const models = data_models;
+
+const models = [
+    {
+        target: 'microscope',
+        model: require('../res/microscope/mikro1.obj'),
+        type: 'OBJ',
+        scale: [.6, .6, .6],
+        resources: [],
+    },
+    {
+        target: 'matraz',
+        model: require('../res/matraz1/matraz1.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target:'mechero',
+        model: require('../res/mechero/mechero.obj'),
+        type: 'OBJ',
+        resources: [],
+        scale: [.1, .1, .1],
+    },
+    {
+        target: 'mezcladora',
+        model: require('../res/mezcladora/mezcladora.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target: 'test_tubes',
+        model: require('../res/tubos_ensayo/tubos_ensayo.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target:'probeta',
+        model: require('../res/probeta/tubos_medidor.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target:'balanza',
+        model: require('../res/balanza/Gramera.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target:'pipeta',
+        model: require('../res/pipete/pipete.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },
+    {
+        target:'agarradera',
+        model: require('../res/agarradera/agarradera.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    },{
+        target:'mechero',
+        model: require('../res/mechero/mechero.obj'),
+        type: 'OBJ',
+        scale: [.1, .1, .1],
+        resources: [],
+    }
+
+]
+
+
+
+export default function ArViewerC (){
+
 const scenes = {
     microscope: MicroscopeScene,
     matraz: MatrazScene,
@@ -19,6 +96,7 @@ const scenes = {
     jeringa: JeringaScene,
     petri: PetriScene,
 }
+
 
 export default function ArViewerC() {
     // const [targetFound, setTargetFound] = useState("");
@@ -83,7 +161,13 @@ export default function ArViewerC() {
             orientation: 'Up',
             physicalWidth: 0.1
         },
+        'agarradera':{
+            source: require('../res/cards/agarradera.png'),
+            orientation: 'Up',
+            physicalWidth: 0.1
+        }
     })
+
 
 
     // const onAnchorFound = (newTarget, e) => {
@@ -115,6 +199,7 @@ export default function ArViewerC() {
     //         </ViroARScene>
     //     )
     // }
+
 
     const onInitialized = (state, reason) => {
         if (state === ViroTrackingStateConstants.TRACKING_NORMAL) {
