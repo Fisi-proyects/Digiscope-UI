@@ -1,16 +1,29 @@
 import { StyleSheet, TouchableOpacity, View} from "react-native";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import { Link } from "expo-router";
+import { Link, usePathname } from "expo-router";
 export default function Navigate(){
 
     const [selected, setSelected] = useState(1);
+    const pathname = usePathname();
 
     const handleSelected = (index) =>{
         setSelected(index);
     }
     
+    useEffect(() => {
+        if (pathname.includes('ar_viewer')) {
+            setSelected(0);
+        }if (pathname.includes('aprendizaje')) {
+            setSelected(1);
+        }
+        if (pathname.includes('help')) {
+            setSelected(2);
+        }
+    }, [pathname]);
+
+
     return(
         <View style = {styles.container} >
             <Link href="/ar_viewer" asChild  key ={0} >
@@ -20,7 +33,7 @@ export default function Navigate(){
                     <MaterialCommunityIcons name="line-scan" size={24} color={selected === 0 ? '#79DA9E': 'black'} />
                 </TouchableOpacity>
             </Link>
-            <Link href="/lessons" asChild  key ={1} >
+            <Link href="/aprendizaje" asChild  key ={1} >
                 <TouchableOpacity style={styles.icons} onPress={()=>{
                     handleSelected(1);
                 }} >
