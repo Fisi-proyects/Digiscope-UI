@@ -23,6 +23,7 @@ export default function ScrollLesson (){
             />
             
             {filteredLessons.map((lesson) => (
+
                 <Link key={lesson.id} href={`/lessons/${lesson.id}`} asChild>
                     <TouchableOpacity style={{width:'100%'}}>
                         <View style={styles.lessoncard}>
@@ -68,8 +69,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         marginBottom: 15,
-        width: '90%',
-        fontSize: 18,
+        width: '100%',
+        fontSize: 16,
         borderColor: '#ddd',
         borderWidth: 1,
     },
@@ -86,19 +87,19 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         elevation: 2,
         width: '100%',
-        marginHorizontal:-8,
         borderColor: '#ddd',
         borderWidth: 1,
     },
     lessonImage: {
         width: '100%',
-        height: 100,
+        height: 150,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
     },
     lesonTextContainer:{
         width:'100%',
-        padding:10,
+        paddingVertical:10,
+        paddingHorizontal:20,
         display:'flex',
         justifyContent:'flex-start',
     },
