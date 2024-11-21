@@ -22,7 +22,7 @@ const freeScene = (props) => {
     )
 }
 
-export default function ARFree (){
+export default function ArCards (){
     const [object, setObject] = useState('microscope');
     ViroAnimations.registerAnimations({
         grow:{

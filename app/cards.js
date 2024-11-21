@@ -1,6 +1,5 @@
-import { View } from "react-native";
-import ArViewerC from "../components/ArViewer";
+import ArCards from "../components/ArViewerCards";
 
 export default function Free() {
-    return <ArViewerC />
+    return <ArCards />
 }

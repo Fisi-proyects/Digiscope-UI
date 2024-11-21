@@ -1,5 +1,5 @@
-import ARFree from "../components/ArViewerFree";
+import ArViewerC from "../components/ArViewer";
 
 export default function Free () {
-    return <ARFree />
+    return <ArViewerC />
 }

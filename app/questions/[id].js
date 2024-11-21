@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View, Modal } from "react-native";
-import {preguntas} from '../../components/data';
+import {preguntas} from '../../data/data';
 import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import Ionicons from '@expo/vector-icons/Ionicons';
