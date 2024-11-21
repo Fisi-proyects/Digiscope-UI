@@ -95,7 +95,7 @@ export default function ArViewerC() {
 
     const handleSceneChange = (sceneKey) => {
         setCurrentScene(sceneKey);
-        sceneNavigator.replace(sceneKey, { scene: scenes[sceneKey] });
+        this.sceneNavigator.replace(sceneKey, { scene: scenes[sceneKey] });
     };
 
     const onInitialized = (state, reason) => {
