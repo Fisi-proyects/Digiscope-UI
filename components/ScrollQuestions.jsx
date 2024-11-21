@@ -31,13 +31,13 @@ export default function ScrollQuestions (){
 
                     <TouchableOpacity style={styleQ.questioncard}>
                         <View style={styleQ.iconContainer} >
-                            <Ionicons name="document-text" size={36} color="#4CAF50" />
+                            <Ionicons name="document-text" size={36} color="#79DA9B" />
                         </View>
                         <View style={styleQ.cardTextContainer}>
                             <Text style={styleQ.cardTitle} >{quiz.title}</Text>
                             <Text style={styleQ.cardDescription} >{quiz.description}</Text>
                         </View>
-                        <Ionicons name="chevron-forward" size={30} color="#333" />
+                        <Ionicons name="chevron-forward" size={30} color="#515050" />
                     </TouchableOpacity>
 
                 </Link>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     contentWrapper: {
         alignItems: 'center',
         paddingBottom: 100,
-        width: 320,
+        width: 340,
         margin: 20,
         gap: 20,
     },
@@ -61,13 +61,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 20,
         marginBottom: 15,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
         elevation: 2,
         width: 380,
-        marginHorizontal: -8,
+        
         borderColor: '#ddd',
         borderWidth: 1,
     },
@@ -107,14 +103,8 @@ const styleQ = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 15,
         padding: 25,
-        marginBottom: 15,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
-        elevation: 3,
-        width: 380,
-        marginHorizontal:-8,
+        elevation: 1,
+        width: "100%",
         borderColor: '#ddd',
         borderWidth: 1,
     },
@@ -132,12 +122,13 @@ const styleQ = StyleSheet.create({
     },
     cardTitle: {
     
-        fontSize: 14,
+        fontSize: 18,
         fontWeight: 'bold',
         lineHeight: 16.94,
         textAlign: 'left',
         textDecorationLine: 'bold',   
-        textDecorationSkipInk: 'none',     
+        textDecorationSkipInk: 'none', 
+        color: "#515050"    
     },
     cardDescription: {    
         fontSize: 12,
@@ -146,5 +137,6 @@ const styleQ = StyleSheet.create({
         textAlign: 'left',
         //textDecorationLine: 'underline',   
         textDecorationSkipInk: 'none',     
+        color:"#898989"
     },
 })
