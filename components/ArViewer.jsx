@@ -1,5 +1,5 @@
 import { ViroAnimations, ViroARSceneNavigator, ViroARTrackingTargets, ViroTrackingStateConstants } from "@reactvision/react-viro";
-import { Button, View } from "react-native";
+import { View } from "react-native";
 import { useState } from "react";
 import { data_models } from "../data/models";
 import { MicroscopeScene } from "./scenes/MicroscopeScene";
@@ -11,6 +11,7 @@ import { PetriScene } from "./scenes/PetriScene";
 import { MecheroScene } from "./scenes/MecheroScene";
 import { ProbetaScene } from "./scenes/ProbetaScene";
 import { BalanzaScene } from "./scenes/BalanzaScene";
+import { ARModelSlider } from "./ARModelSlider";
 
 const models = data_models;
 const scenes = {
@@ -112,23 +113,20 @@ export default function ArViewerC() {
             <ViroARSceneNavigator
                 ref={(navigator) => { this.sceneNavigator = navigator; }}
                 autofocus={true}
-                initialScene={{ scene: scenes[currentScene], key: currentScene }} // te odio
+                initialScene={{ scene: scenes[currentScene], key: currentScene }}
                 style={{ flex: 1, width: "100%", height: "100%" }}
             />
-            <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around", paddingBottom: 100 }}>
-                {models.map((model, index) => {
-                    return (
-                        <View key={index} style={{ width: "25%", padding: 5 }}>
-                            <Button
-                                title={model.target}
-                                onPress={() => {
-                                    handleSceneChange(model.target);
-                                    console.log("Modelo anterior: " + currentScene);
-                                }}
-                            />
-                        </View>
-                    )
-                })}
+            <View style={{ paddingBottom: 65, backgroundColor: "#f3f7fe" }}>
+                {/* 
+                    No se puede hacer transparente a menos
+                    que sea renderizado dentro del scenenavigator, 
+                    pero la librería parece que no deja eksdi
+                */}
+                <ARModelSlider 
+                    models={models} 
+                    currentScene={currentScene} 
+                    handleSceneChange={handleSceneChange} 
+                />
             </View>
         </View>
     );
