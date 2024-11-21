@@ -1,31 +1,23 @@
-import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import { Link } from "expo-router";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import FeaturedCard from "./FeaturedCard";
-import React, { forwardRef } from 'react';
-import { View, Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import QuizCard from "./QuizCard";
+import { Link } from "expo-router";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 
 const quizData = [
-    {id: 1, title: 'Cuestionario 1', description: 'Descripción del cuestionario 1' },
-    {id: 2, title: 'Cuestionario 2', description: 'Descripción del cuestionario 2' },
-    {id: 3, title: 'Cuestionario 3', description: 'Descripción del cuestionario 3' },
-    {id: 4, title: 'Cuestionario 4', description: 'Descripción del cuestionario 4' },
-    {id: 5, title: 'Cuestionario 5', description: 'Descripción del cuestionario 5' },
-    {id: 6, title: 'Cuestionario 6', description: 'Descripción del cuestionario 6' },
-    {id: 7, title: 'Cuestionario 7', description: 'Descripción del cuestionario 7' },
-    {id: 8, title: 'Cuestionario 8', description: 'Descripción del cuestionario 8' },
-    {id: 9, title: 'Cuestionario 9', description: 'Descripción del cuestionario 9' },
-    {id: 10, title: 'Cuestionario 10', description: 'Descripción del cuestionario 10' },
-    {id: 11, title: 'Cuestionario 11', description: 'Descripción del cuestionario 11' },
+    { id: 1, title: 'Cuestionario 1', description: 'Descripción del cuestionario 1' },
+    { id: 2, title: 'Cuestionario 2', description: 'Descripción del cuestionario 2' },
+    { id: 3, title: 'Cuestionario 3', description: 'Descripción del cuestionario 3' },
+    { id: 4, title: 'Cuestionario 4', description: 'Descripción del cuestionario 4' },
+    { id: 5, title: 'Cuestionario 5', description: 'Descripción del cuestionario 5' },
 ];
-
 
 export default function ScrollQuestions (){
     return (
         <ScrollView contentContainerStyle={styles.contentWrapper}>
             <FeaturedCard onPress={() => alert('Cuestionario destacado')} />
-            
             {quizData.map((quiz) => (
                 <Link key={quiz.id} href={`/quizzes/${quiz.id}`} asChild>
 
@@ -42,13 +34,12 @@ export default function ScrollQuestions (){
 
                 </Link>
             ))}
-            
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    contentWrapper: {
+    contentWrapper:{
         alignItems: 'center',
         paddingBottom: 100,
         width: 340,

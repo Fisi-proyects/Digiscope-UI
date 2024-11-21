@@ -4,7 +4,16 @@ import FeaturedCard from "./FeaturedCard";
 import QuizCard from "./QuizCard";
 import { useState } from "react";
 import { Link } from "expo-router";
-import { lessonsData } from "../app/lessons/LessonsData";
+
+
+
+const lessonsData = [
+    { id: 1, title: 'Lección 1', description: 'Descripción de la Lección 1', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
+    { id: 2, title: 'Lección 2', description: 'Descripción de la Lección 2', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
+    { id: 3, title: 'Lección Especial', description: 'Descripción de la Lección Especial', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
+    { id: 4, title: 'Lección Avanzada', description: 'Descripción de la Lección Avanzada', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
+    { id: 5, title: 'Lección Introductoria', description: 'Descripción de la Lección Introductoria', image: 'https://miro.medium.com/v2/resize:fit:1400/1*MF5V_dkybUTcfzwHFh0VSw.jpeg' },
+];
 
 export default function ScrollLesson (){
     const [searchTerm, setSearchTerm] = useState('');
@@ -23,34 +32,36 @@ export default function ScrollLesson (){
             />
             
             {filteredLessons.map((lesson) => (
-
-                <Link key={lesson.id} href={`/lessons/${lesson.id}`} asChild>
-                    <TouchableOpacity style={{width:'100%'}}>
-                        <View style={styles.lessoncard}>
-                            <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
-                            <View style={styles.lesonTextContainer}>
-                                <Text style={styles.cardTitle}>{lesson.title}</Text>
-                                <Text style={styles.cardDescription}>{lesson.tool}</Text>
-                            </View>
-                            <View style={{
-                                backgroundColor:'white',
-                                position:'absolute',
-                                right:0,
-                                bottom:0,
-                                width:40,
-                                height:40,
-                                borderRadius:50,
-                                aspectRatio:1,
-                                marginBottom:'20%',
-                                marginRight:'5%',
-                                alignItems:'center',
-                                justifyContent:'center',
-                            }}>
-                                <Ionicons name='arrow-forward-outline' size={30} color='#515050' />
-                            </View>
-                        </View>
-                    </TouchableOpacity>
+/* CARDS DE LAS LECCIONES */
+                <Link href={`/lessons/${lesson.id}`} asChild  >
+                <TouchableOpacity style={{width:'100%'}}>
+                <View key={lesson.id} style={styles.lessoncard}>
+                    <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
+                    <View style={styles.lesonTextContainer}>
+                        <Text style={styles.cardTitle}>{lesson.title}</Text>
+                        <Text style={styles.cardDescription}>{lesson.description}</Text>
+                    </View>
+                    <View style={{
+                        backgroundColor:'white',
+                        position:'absolute',
+                        right:0,
+                        bottom:0,
+                        width:40,
+                        height:40,
+                        borderRadius:50,
+                        aspectRatio:1,
+                        marginBottom:'20%',
+                        marginRight:'5%',
+                        alignItems:'center',
+                        justifyContent:'center',
+                    }}   >
+                        <Ionicons name='arrow-forward-outline' size={30} color='#515050'  />
+                    </View>
+                </View>
+                </TouchableOpacity>
                 </Link>
+                
+
             ))}
         </ScrollView>
     );
@@ -69,8 +80,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         marginBottom: 15,
-        width: '100%',
-        fontSize: 16,
+        width: '90%',
+        fontSize: 18,
         borderColor: '#ddd',
         borderWidth: 1,
     },
@@ -87,23 +98,24 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         elevation: 2,
         width: '100%',
+        marginHorizontal:-8,
         borderColor: '#ddd',
         borderWidth: 1,
     },
     lessonImage: {
         width: '100%',
-        height: 150,
+        height: 100,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
     },
     lesonTextContainer:{
         width:'100%',
-        paddingVertical:10,
-        paddingHorizontal:20,
+        padding:10,
         display:'flex',
         justifyContent:'flex-start',
     },
     cardTitle: {
+        fontFamily: 'Inter',        
         fontSize: 14,
         fontWeight: 'bold',
         lineHeight: 16.94,
@@ -112,6 +124,7 @@ const styles = StyleSheet.create({
         textDecorationSkipInk: 'none',     
     },
     cardDescription: {
+        fontFamily: 'Inter',        
         fontSize: 12,
         fontWeight: '500',
         lineHeight: 14.52,
@@ -119,4 +132,4 @@ const styles = StyleSheet.create({
         //textDecorationLine: 'underline',   
         textDecorationSkipInk: 'none',     
     },
-});
+})
