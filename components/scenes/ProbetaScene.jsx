@@ -3,13 +3,13 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 
 const models = data_models;
 
-export const JeringaScene = (props) => (
+export const ProbetaScene = (props) => (
   <ViroARScene>
     <ViroAmbientLight color="#ffffff" />
     <Viro3DObject
-      source={models[9].model}
-      type={models[9].type}
-      scale={models[9].scale}
+      source={models[5].model}
+      type={models[5].type}
+      scale={models[5].scale}
     />
   </ViroARScene>
 );

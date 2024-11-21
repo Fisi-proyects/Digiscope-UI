@@ -1,20 +1,26 @@
-import { Viro3DObject, ViroAmbientLight, ViroAnimations, ViroARScene, ViroARSceneNavigator, ViroARTrackingTargets, ViroBox, ViroTrackingStateConstants } from "@reactvision/react-viro";
-import { Button, Text, View } from "react-native";
-import ArCards from "./ArCards";
+import { ViroAnimations, ViroARSceneNavigator, ViroARTrackingTargets, ViroTrackingStateConstants } from "@reactvision/react-viro";
+import { Button, View } from "react-native";
 import { useState } from "react";
-import { data_models } from "./models";
+import { data_models } from "../data/models";
 import { MicroscopeScene } from "./scenes/MicroscopeScene";
 import { MatrazScene } from "./scenes/MatrazScene";
 import { TestTubesScene } from "./scenes/TestTubesScene";
 import { PipetaScene } from "./scenes/PipetaScene";
 import { JeringaScene } from "./scenes/JeringaScene";
 import { PetriScene } from "./scenes/PetriScene";
+import { MecheroScene } from "./scenes/MecheroScene";
+import { ProbetaScene } from "./scenes/ProbetaScene";
+import { BalanzaScene } from "./scenes/BalanzaScene";
 
 const models = data_models;
 const scenes = {
     microscope: MicroscopeScene,
     matraz: MatrazScene,
+    mechero: MecheroScene,
+    mezcladora: MecheroScene,
     test_tubes: TestTubesScene,
+    probeta: ProbetaScene,
+    balanza: BalanzaScene,
     pipeta: PipetaScene,
     jeringa: JeringaScene,
     petri: PetriScene,
@@ -86,35 +92,10 @@ export default function ArViewerC() {
     })
 
 
-    // const onAnchorFound = (newTarget, e) => {
-    //     console.log("Encontrado ahora: " + newTarget)
-    //     setTargetFound(newTarget);
-    // }
-
     const handleSceneChange = (sceneKey) => {
         setCurrentScene(sceneKey);
-        sceneNavigator.jump(sceneKey, { scene: scenes[sceneKey] });
+        sceneNavigator.replace(sceneKey, { scene: scenes[sceneKey] });
     };
-
-    // const CardScene = () => {
-    //     return (
-    //         <ViroARScene>
-    //             <ViroAmbientLight color="#ffffff" influenceBitMask={1}/>
-    //             {models.map((model, index) => {
-    //                 return (
-    //                     <ArCards
-    //                         key={index}
-    //                         target={model.target}
-    //                         type={model.type}
-    //                         scale={model.scale}
-    //                         model={model.model}
-    //                         onAnchorFound={(e) => onAnchorFound(model.target, e) }
-    //                     />
-    //                 )
-    //             })}
-    //         </ViroARScene>
-    //     )
-    // }
 
     const onInitialized = (state, reason) => {
         if (state === ViroTrackingStateConstants.TRACKING_NORMAL) {
@@ -131,7 +112,6 @@ export default function ArViewerC() {
             <ViroARSceneNavigator
                 ref={(navigator) => { this.sceneNavigator = navigator; }}
                 autofocus={true}
-                // initialScene={{scene: CardScene}}
                 initialScene={{ scene: scenes[currentScene], key: currentScene }} // te odio
                 style={{ flex: 1, width: "100%", height: "100%" }}
             />
@@ -142,9 +122,8 @@ export default function ArViewerC() {
                             <Button
                                 title={model.target}
                                 onPress={() => {
-                                    // setCurrentScene(model.target);
                                     handleSceneChange(model.target);
-                                    console.log(currentScene);
+                                    console.log("Modelo anterior: " + currentScene);
                                 }}
                             />
                         </View>

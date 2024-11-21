@@ -1,4 +1,4 @@
-import { data_models } from "../models.js";
+import { data_models } from "../../data/models.js";
 import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-viro";
 
 const models = data_models;
