@@ -64,7 +64,7 @@ export const data_models = [
     },
     {
         target: 'jeringa',
-        model: require('../res/pipete/Vial_and_Syringe.obj'),
+        model: require('../res/jeringa/Vial_and_Syringe.obj'),
         type: 'OBJ',
         scale: [.1, .1, .1],
         resources: [],

@@ -13,7 +13,7 @@ export default function Navigate(){
     
     return(
         <View style = {styles.container} >
-            <Link href="/ar_viewer" asChild  key ={0} >
+            <Link href="/select" asChild  key ={0} >
                 <TouchableOpacity style={styles.icons} onPress ={()=>{
                     handleSelected(0);
                 }} >
