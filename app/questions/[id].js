@@ -100,7 +100,7 @@ export default function QuizCard() {
             >
                 <View style={modalStyles.modalBackground}>
                     <View style={modalStyles.modalContainer}>
-                        <Text style={modalStyles.modalText}>Obtuviste {puntaje} puntos</Text>
+                        <Text style={modalStyles.modalText}>Obtuviste {puntaje}/10 puntos</Text>
                         <TouchableOpacity
                             style={modalStyles.closeButton}
                             onPress={() => {

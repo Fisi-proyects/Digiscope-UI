@@ -8,7 +8,7 @@ export default function ScrollLesson (){
     const [searchTerm, setSearchTerm] = useState('');
 
     const filteredLessons = lessonsData.filter(lesson =>
-        lesson.title.toLowerCase().includes(searchTerm.toLowerCase())
+        lesson.title.toLowerCase().includes(searchTerm.toLowerCase())||lesson.tool.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
@@ -20,12 +20,11 @@ export default function ScrollLesson (){
                 onChangeText={text => setSearchTerm(text)}
             />
             
-            {filteredLessons.map((lesson) => (
+            {filteredLessons.map((lesson, index) => (
 
                 <Link key={lesson.id} href={`/lessons/${lesson.id}`} asChild>
-                    <TouchableOpacity style={{width:'100%'}}>
-                        <View style={styles.lessoncard}>
-                            <Image source={{ uri: lesson.image }} style={styles.lessonImage} />
+                    <TouchableOpacity style={ styles.lessoncard}>
+                            <Image source={{uri : ''}} style={styles.lessonImage} />
                             <View style={styles.lesonTextContainer}>
                                 <Text style={styles.cardTitle}>{lesson.title}</Text>
                                 <Text style={styles.cardDescription}>{lesson.tool}</Text>
@@ -46,7 +45,6 @@ export default function ScrollLesson (){
                             }}>
                                 <Ionicons name='arrow-forward-outline' size={30} color='#515050' />
                             </View>
-                        </View>
                     </TouchableOpacity>
                 </Link>
             ))}
