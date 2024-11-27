@@ -50,49 +50,6 @@ export default function ArViewerC() {
         }
     })
 
-    ViroARTrackingTargets.createTargets({
-        'microscope': {
-            source: require('../res/cards/microscope.jpg'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'matraz': {
-            source: require('../res/cards/matraz.png'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'mechero': {
-            source: require('../res/cards/mechero.png'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'mezcladora': {
-            source: require('../res/cards/mezcladora.jpg'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'test_tubes': {
-            source: require('../res/cards/test_tubes.jpg'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'probeta': {
-            source: require('../res/cards/probeta.jpg'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'balanza': {
-            source: require('../res/cards/balanza.jpg'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-        'pipeta': {
-            source: require('../res/cards/pipeta.png'),
-            orientation: 'Up',
-            physicalWidth: 0.1
-        },
-    })
-
 
     const handleSceneChange = (sceneKey) => {
         setCurrentScene(sceneKey);
