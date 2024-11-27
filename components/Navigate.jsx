@@ -25,7 +25,9 @@ export default function Navigate(){
 
 
     return(
-        <View style = {styles.container} >
+        <View style={styles.container}
+            behavior="none"
+        >
             <Link href="/select" asChild  key ={0} >
                 <TouchableOpacity style={styles.icons} onPress ={()=>{
                     handleSelected(0);

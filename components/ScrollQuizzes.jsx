@@ -1,32 +1,43 @@
-import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import FeaturedCard from "./FeaturedCard";
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 
 const questionData = [
-    {id: 1, title: 'Cuestionario 1', description: 'Descripción del cuestionario 1' },
-    {id: 2, title: 'Cuestionario 2', description: 'Descripción del cuestionario 2' },
-    {id: 3, title: 'Cuestionario 3', description: 'Descripción del cuestionario 3' },
-    {id: 4, title: 'Cuestionario 4', description: 'Descripción del cuestionario 4' },
-    {id: 5, title: 'Cuestionario 5', description: 'Descripción del cuestionario 5' },
-    {id: 6, title: 'Cuestionario 6', description: 'Descripción del cuestionario 6' },
-    {id: 7, title: 'Cuestionario 7', description: 'Descripción del cuestionario 7' },
-    {id: 8, title: 'Cuestionario 8', description: 'Descripción del cuestionario 8' },
-    {id: 9, title: 'Cuestionario 9', description: 'Descripción del cuestionario 9' },
-    {id: 10, title: 'Cuestionario 10', description: 'Descripción del cuestionario 10' },
-    {id: 11, title: 'Cuestionario 11', description: 'Descripción del cuestionario 11' },
+    {id: 1, title: 'Cuestionario 1', description: 'Placa de Petri' },
+    {id: 2, title: 'Cuestionario 2', description: 'Tubos de ensayo' },
+    {id: 3, title: 'Cuestionario 3', description: 'Microscopio' },
+    {id: 4, title: 'Cuestionario 4', description: 'Balaza Digital' },
+    {id: 5, title: 'Cuestionario 5', description: 'Termometro Digital' },
+    {id: 6, title: 'Cuestionario 6', description: 'Matraz' },
+    {id: 7, title: 'Cuestionario 7', description: 'Soporte Universal' },
+    {id: 8, title: 'Cuestionario 8', description: 'Probeta Graduada' },
+    {id: 9, title: 'Cuestionario 9', description: 'Mechero de Bunsen' },
+    {id: 10, title: 'Cuestionario 10', description: 'Maquina de prueba de jarras' },
+    {id: 11, title: 'Cuestionario 11', description: 'Pipeta' },
 ];
 
 
 export default function ScrollQuizzes (){
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const filteredQuestions = questionData.filter(lesson =>
+        lesson.title.toLowerCase().includes(searchTerm.toLowerCase())||lesson.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <ScrollView contentContainerStyle={styles.contentWrapper}>
-            <FeaturedCard onPress={() => alert('Cuestionario destacado')} />
+            <TextInput
+                style={styleQ.searchInput}
+                placeholder="Filtrar Cuestionarios"
+                value={searchTerm}
+                onChangeText={text => setSearchTerm(text)}
+            />
             
-            {questionData.map((question) => (
+            {filteredQuestions.map((question) => (
                 <Link key={question.id} href={`/questions/${question.id}`} asChild>
 
                     <TouchableOpacity style={styleQ.questioncard}>
@@ -51,7 +62,7 @@ const styles = StyleSheet.create({
     contentWrapper: {
         alignItems: 'center',
         paddingBottom: 100,
-        width: 340,
+        width: '100%',
         margin: 20,
         gap: 20,
     },
@@ -104,7 +115,7 @@ const styleQ = StyleSheet.create({
         borderRadius: 15,
         padding: 25,
         elevation: 1,
-        width: "100%",
+        width: "90%",
         borderColor: '#ddd',
         borderWidth: 1,
     },
@@ -131,12 +142,22 @@ const styleQ = StyleSheet.create({
         color: "#515050"    
     },
     cardDescription: {    
-        fontSize: 12,
+        fontSize: 15,
         fontWeight: '500',
         lineHeight: 14.52,
         textAlign: 'left',
         //textDecorationLine: 'underline',   
         textDecorationSkipInk: 'none',     
         color:"#898989"
+    },
+    searchInput: {
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 10,
+        marginBottom: 15,
+        width: 320,
+        fontSize: 16,
+        borderColor: '#ddd',
+        borderWidth: 1,
     },
 })

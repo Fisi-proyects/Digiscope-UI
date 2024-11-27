@@ -12,13 +12,14 @@ import { MecheroScene } from "./scenes/MecheroScene";
 import { ProbetaScene } from "./scenes/ProbetaScene";
 import { BalanzaScene } from "./scenes/BalanzaScene";
 import { ARModelSlider } from "./ARModelSlider";
+import { MezcladoraScene } from "./scenes/MezcladoraScene";
 
 const models = data_models;
 const scenes = {
     microscope: MicroscopeScene,
     matraz: MatrazScene,
     mechero: MecheroScene,
-    mezcladora: MecheroScene,
+    mezcladora: MezcladoraScene,
     test_tubes: TestTubesScene,
     probeta: ProbetaScene,
     balanza: BalanzaScene,

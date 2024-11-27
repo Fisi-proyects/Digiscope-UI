@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import { Slot, usePathname, useRouter } from "expo-router";
-
 export default function APLayout(){
+
     const router = useRouter();
     const pathname = usePathname();
     const [activeTab, setActiveTab] = useState();

@@ -27,7 +27,7 @@ export default function DetailLesson(){
                         </Text>
                     </View>
                     <View style={{ width:'100%', justifyContent:'center', alignItems:'center'}}>
-                        <Image source={require('../../assets/leccion1.jpeg')} style={{width:300, height:300}}  />
+                        <Image source={{uri:lessonsData[id-1].image}} style={{width:300, height:300, borderRadius:20}}  />
                     </View>
                 </View>
 

@@ -24,7 +24,7 @@ export default function ScrollLesson (){
 
                 <Link key={lesson.id} href={`/lessons/${lesson.id}`} asChild>
                     <TouchableOpacity style={ styles.lessoncard}>
-                            <Image source={{uri : ''}} style={styles.lessonImage} />
+                            <Image source={{uri : lesson.image }} style={styles.lessonImage} />
                             <View style={styles.lesonTextContainer}>
                                 <Text style={styles.cardTitle}>{lesson.title}</Text>
                                 <Text style={styles.cardDescription}>{lesson.tool}</Text>
