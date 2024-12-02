@@ -14,12 +14,12 @@ ViroARTrackingTargets.createTargets({
     'matraz': {
         source: require('../res/cards/matraz.jpg'),
         orientation: 'Up',
-        physicalWidth: 0.1
+        physicalWidth: 0.13
     },
     'mechero': {
         source: require('../res/cards/mechero.png'),
         orientation: 'Up',
-        physicalWidth: 0.1
+        physicalWidth: 0.2
     },
     'mezcladora': {
         source: require('../res/cards/mezcladora.jpg'),
@@ -44,12 +44,12 @@ ViroARTrackingTargets.createTargets({
     'pipeta': {
         source: require('../res/cards/pipeta.png'),
         orientation: 'Up',
-        physicalWidth: 0.1
+        physicalWidth: 0.02
     },
     'petri': {
         source: require('../res/cards/petri.jpg'),
         orientation: 'Up',
-        physicalWidth: 0.1
+        physicalWidth: .5
     },
     'jeringa':{
         source: require('../res/cards/jeringa.jpg'),

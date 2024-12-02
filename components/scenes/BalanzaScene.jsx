@@ -5,7 +5,7 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 const models = data_models;
 
 export const BalanzaScene = (props) => {
-  const [position, setPosition] = useState([0, 0, -1]);
+  const [position, setPosition] = useState([0, -.3, -1]);
   const [scale, setScale] = useState(models[6].scale);
   const [rotate, setRotate] = useState([0, 0, 0]);
 

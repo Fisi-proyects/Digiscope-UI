@@ -5,7 +5,7 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 const models = data_models;
 
 export const JeringaScene = (props) => {
-  const [position, setPosition] = useState([0, 0, -.6]);
+  const [position, setPosition] = useState([0, -.3, -.6]);
   const [scale, setScale] = useState(models[9].scale);
   const [rotate, setRotate] = useState([0, 0, 0]);
 

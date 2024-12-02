@@ -5,7 +5,7 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 const models = data_models;
 
 export const MatrazScene = (props) => {
-  const [position, setPosition] = useState([0, 0, -.3]);
+  const [position, setPosition] = useState([.1, 0, -.4]);
   const [scale, setScale] = useState(models[1].scale);
   const [rotate, setRotate] = useState([0, 0, 0]);
   return(

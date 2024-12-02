@@ -5,7 +5,7 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 const models = data_models;
 
 export const TestTubesScene = (props) => {
-  const [position, setPosition] = useState([0, 0, -.3]);
+  const [position, setPosition] = useState([0, -.2, -.3]);
   const [scale, setScale] = useState(models[4].scale);
   const [rotate, setRotate] = useState([0, 0, 0]);
 

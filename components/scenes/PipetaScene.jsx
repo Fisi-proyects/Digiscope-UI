@@ -5,7 +5,7 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 const models = data_models;
 
 export const PipetaScene = (props) => {
-  const [position, setPosition] = useState([0, 0, -.6]);
+  const [position, setPosition] = useState([0, -.2, -.6]);
   const [scale, setScale] = useState(models[6].scale);
   const [rotate, setRotate] = useState([0, 0, 0]);
 

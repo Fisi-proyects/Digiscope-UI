@@ -5,7 +5,7 @@ import { ViroARScene, Viro3DObject, ViroAmbientLight } from "@reactvision/react-
 const models = data_models;
 
 export const MecheroScene = (props) => {
-  const [position, setPosition] = useState([0, 0, -.3]);
+  const [position, setPosition] = useState([.3, 0, -.4]);
   const [scale, setScale] = useState(models[2].scale);
   const [rotate, setRotate] = useState([0, 0, 0]);
 
